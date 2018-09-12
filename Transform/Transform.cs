@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
-
+public delegate int Smp(int x);
 namespace Transform
 {
     public static class Transform 
     {
-        public static void Map()
+        public static int[] Map(this int[] a, Smp value )
         {
-            throw new NotImplementedException();
+            for(int i=0;i<a.Length;i++)
+            {
+                a[i]=value(a[i]);
+            }
+            return a;
         }
     }
 }
